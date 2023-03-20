@@ -1,4 +1,4 @@
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
 import store from './store';
 import RestaurantScreen from './components/RestaurantScreen';
 
