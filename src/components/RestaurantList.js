@@ -1,6 +1,9 @@
-import {useEffect} from 'react';
+/* eslint-disable prettier/prettier */
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { loadRestaurants } from '../store/restaurants/actions';
 
-export const RestaurantList = ({loadRestaurants, restaurants}) => {
+export function RestaurantList({ loadRestaurants, restaurants }) {
   useEffect(() => {
     loadRestaurants();
   }, [loadRestaurants]);
@@ -13,3 +16,11 @@ export const RestaurantList = ({loadRestaurants, restaurants}) => {
     </ul>
   );
 };
+
+const mapStateToProps = state => ({
+  restaurants: state.restaurants.records,
+});
+
+const mapDispatchToProps = { loadRestaurants };
+
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantList);
